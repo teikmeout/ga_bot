@@ -8,6 +8,10 @@ module.exports = function(CustomBot){
       "users.info",
       { user: this.message.user },
       function(data) {
+        if (typeof data.user === 'undefined') {
+          console.log('user error again');
+          return;
+        }
         this.name = data.user.name;
 
         db.get(
